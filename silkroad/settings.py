@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework', # Import rest framework
+    'rest_framework.authtoken', # This is token auth
 ]
 
 MIDDLEWARE = [
@@ -53,12 +53,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'silkroad.urls'
 
+# Rest framework configs.
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ],
+    # Authentication methods could be Basic as well as session.
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
